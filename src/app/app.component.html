@@ -5,8 +5,8 @@
     </mat-form-field>
   </div>
   <div class="right-container">
-    <ng-container *ngIf="data">
-      <div>
+    <ng-container *ngIf="data; else invalidData">
+      <div class="category">
         <h2>Primary Weapon</h2>
         <mat-form-field>
           <input matInput placeholder="Weapon" [(ngModel)]="data[0][0]" (ngModelChange)="onChange()">
@@ -23,9 +23,11 @@
         <br/>
         <mat-form-field>
           <input matInput placeholder="Magazine" [(ngModel)]="data[0][4][0]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[0][4][1]) && !isDefined(data[0][4][0])">Magazine needs to be specified</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[0][4][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" min="0" placeholder="Magazine Ammo" [(ngModel)]="data[0][4][1]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[0][4][0]) && !isDefined(data[0][4][1])">Magazine Ammo needs to be specified</mat-hint>
         </mat-form-field>
         <br/>
         <mat-form-field>
@@ -38,8 +40,8 @@
           <input matInput placeholder="Bipod" [(ngModel)]="data[0][6]" (ngModelChange)="onChange()">
         </mat-form-field>
       </div>
-      <hr>
-      <div>
+
+      <div class="category">
         <h2>Handgun</h2>
         <mat-form-field>
           <input matInput placeholder="Handgun" [(ngModel)]="data[2][0]" (ngModelChange)="onChange()">
@@ -56,9 +58,11 @@
         <br/>
         <mat-form-field>
           <input matInput placeholder="Magazine" [(ngModel)]="data[2][4][0]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[2][4][1]) && !isDefined(data[2][4][0])">Magazine needs to be specified</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[2][4][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" min="0" placeholder="Magazine Ammo" [(ngModel)]="data[2][4][1]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[2][4][0]) && !isDefined(data[2][4][1])">Magazine Ammo needs to be specified</mat-hint>
         </mat-form-field>
         <!--
         <mat-form-field>
@@ -72,8 +76,8 @@
         </mat-form-field>
         -->
       </div>
-      <hr>
-      <div>
+
+      <div class="category">
         <h2>Secondary Weapon</h2>
         <mat-form-field>
           <input matInput placeholder="Secondary" [(ngModel)]="data[1][0]" (ngModelChange)="onChange()">
@@ -90,9 +94,11 @@
         <br/>
         <mat-form-field>
           <input matInput placeholder="Magazine" [(ngModel)]="data[1][4][0]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[1][4][1]) && !isDefined(data[1][4][0])">Magazine needs to be specified</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[1][4][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" min="0" placeholder="Magazine Ammo" [(ngModel)]="data[1][4][1]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[1][4][0]) && !isDefined(data[1][4][1])">Magazine Ammo needs to be specified</mat-hint>
         </mat-form-field>
         <!--
         <mat-form-field>
@@ -106,17 +112,29 @@
         </mat-form-field>
         -->
       </div>
-      <hr>
-      <div>
+
+      <div class="category">
+        <h2>Binoculars</h2>
+        <mat-form-field>
+          <input matInput placeholder="Binoculars" [(ngModel)]="data[8][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Magazine" [(ngModel)]="data[8][4][0]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[8][4][1]) && !isDefined(data[8][4][0])">Magazine needs to be specified</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[8][4][1]" (ngModelChange)="onChange()">
+          <mat-hint *ngIf="isDefined(data[8][4][0]) && !isDefined(data[8][4][1])">Magazine Ammo needs to be specified</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="category">
         <h2>Misc</h2>
         <mat-form-field>
           <input matInput placeholder="Helmet" [(ngModel)]="data[6]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Facewear" [(ngModel)]="data[7]" (ngModelChange)="onChange()">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Binoculars" [(ngModel)]="data[8][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Map" [(ngModel)]="data[9][0]" (ngModelChange)="onChange()">
@@ -137,23 +155,65 @@
           <input matInput placeholder="Goggles" [(ngModel)]="data[9][5]" (ngModelChange)="onChange()">
         </mat-form-field>
       </div>
-      <hr>
-      <div class="uniform-container">
-        <mat-form-field>
-          <input matInput placeholder="Uniform" [(ngModel)]="data[3][0]" (ngModelChange)="onChange()">
-        </mat-form-field>
-      </div>
-      <div class="vest-container">
-        <mat-form-field>
-          <input matInput placeholder="Vest" [(ngModel)]="data[4][0]" (ngModelChange)="onChange()">
-        </mat-form-field>
-      </div>
-      <div class="backpack-container">
-        <mat-form-field>
-          <input matInput placeholder="Backpack" [(ngModel)]="data[5][0]" (ngModelChange)="onChange()">
-        </mat-form-field>
+
+      <div>
+        <h2>Equipment</h2>
+        <div class="uniform-container">
+          <mat-form-field>
+            <input matInput placeholder="Uniform" [(ngModel)]="data[3][0]" (ngModelChange)="onChange()">
+          </mat-form-field>
+
+          <h4>Items</h4>
+          <mat-chip-list>
+            <mat-chip *ngFor="let item of (data[3][1])" (click)="editItemDialog(data[3][1], item)">
+              {{item[1]}} {{item[0]}} {{isDefined(item[2]) ? ' (' + item[2] + ')' : ''}}
+              <mat-icon class="delete-item-icon" color="warn" (click)="deleteItem(data[3][1], item)">delete</mat-icon>
+            </mat-chip>
+            <mat-chip class="add-item-chip" (click)="addItemDialog(data[3][1])">
+              Add
+              <mat-icon class="add-item-icon">add</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        <div class="vest-container">
+          <mat-form-field>
+            <input matInput placeholder="Vest" [(ngModel)]="data[4][0]" (ngModelChange)="onChange()">
+          </mat-form-field>
+
+          <h4>Items</h4>
+          <mat-chip-list>
+            <mat-chip *ngFor="let item of (data[4][1])" (click)="editItemDialog(data[4][1], item)">
+              {{item[1]}} {{item[0]}} {{isDefined(item[2]) ? ' (' + item[2] + ')' : ''}}
+              <mat-icon class="delete-item-icon" color="warn" (click)="deleteItem(data[4][1], item)">delete</mat-icon>
+            </mat-chip>
+            <mat-chip class="add-item-chip" (click)="addItemDialog(data[4][1])">
+              Add
+              <mat-icon class="add-item-icon">add</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        <div class="backpack-container">
+          <mat-form-field>
+            <input matInput placeholder="Backpack" [(ngModel)]="data[5][0]" (ngModelChange)="onChange()">
+          </mat-form-field>
+
+          <h4>Items</h4>
+          <mat-chip-list>
+            <mat-chip *ngFor="let item of (data[5][1])" (click)="editItemDialog(data[5][1], item)">
+              {{item[1]}} {{item[0]}} {{isDefined(item[2]) ? ' (' + item[2] + ')' : ''}}
+              <mat-icon class="delete-item-icon" color="warn" (click)="deleteItem(data[5][1], item)">delete</mat-icon>
+            </mat-chip>
+            <mat-chip class="add-item-chip" (click)="addItemDialog(data[5][1])">
+              Add
+              <mat-icon class="add-item-icon">add</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
       </div>
     </ng-container>
+    <ng-template #invalidData>
+      <h2>The supplied loadout format is invalid</h2>
+    </ng-template>
   </div>
 </div>
 
