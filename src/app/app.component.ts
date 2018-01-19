@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
 
   public onChange(): void {
     this.input = this.loadoutService.stringifyLoadout(this.data);
-    console.log(this.data[0][4][1]);
   }
 
   public isDefined(data): boolean {
