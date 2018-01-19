@@ -1,20 +1,155 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="main-container" align="center">
+  <div class="left-container">
+    <mat-form-field style="width: 100%">
+      <textarea matInput matTextareaAutosize type="text" placeholder="Loadout" (input)="onInput()" [(ngModel)]="input"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="right-container">
+    <ng-container *ngIf="data">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon" [(ngModel)]="data[0][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Silencer" [(ngModel)]="data[0][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Pointer" [(ngModel)]="data[0][2]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Optic" [(ngModel)]="data[0][3]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Magazine" [(ngModel)]="data[0][4][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Primary Weapon Magazine Ammo" [(ngModel)]="data[0][4][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Grenade" [(ngModel)]="data[0][5][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Primary Weapon Grenade Ammo" [(ngModel)]="data[0][5][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Primary Weapon Bipod" [(ngModel)]="data[0][6]" (ngModelChange)="onChange()">
+        </mat-form-field>
+      </div>
+      <hr>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon" [(ngModel)]="data[2][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Silencer" [(ngModel)]="data[2][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Pointer" [(ngModel)]="data[2][2]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Optic" [(ngModel)]="data[2][3]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Magazine" [(ngModel)]="data[2][4][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Handgun Weapon Magazine Ammo" [(ngModel)]="data[2][4][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <!--
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Grenade" [(ngModel)]="data[2][5][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Handgun Weapon Grenade Ammo" [(ngModel)]="data[2][5][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Handgun Weapon Bipod" [(ngModel)]="data[2][6]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        -->
+      </div>
+      <hr>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon" [(ngModel)]="data[1][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Silencer" [(ngModel)]="data[1][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Pointer" [(ngModel)]="data[1][2]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Optic" [(ngModel)]="data[1][3]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Magazine" [(ngModel)]="data[1][4][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Secondary Weapon Magazine Ammo" [(ngModel)]="data[1][4][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <!--
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Grenade" [(ngModel)]="data[1][5][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Secondary Weapon Grenade Ammo" [(ngModel)]="data[1][5][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Secondary Weapon Bipod" [(ngModel)]="data[2][6]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        -->
+      </div>
+      <hr>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Helmet" [(ngModel)]="data[6]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Facewear" [(ngModel)]="data[7]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Binoculars" [(ngModel)]="data[8][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Map" [(ngModel)]="data[9][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Gps" [(ngModel)]="data[9][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Radio" [(ngModel)]="data[9][2]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Compass" [(ngModel)]="data[9][3]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Watch" [(ngModel)]="data[9][4]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Goggles" [(ngModel)]="data[9][5]" (ngModelChange)="onChange()">
+        </mat-form-field>
+      </div>
+      <hr>
+      <div class="uniform-container">
+        <mat-form-field>
+          <input matInput placeholder="Uniform" [(ngModel)]="data[3][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+      </div>
+      <div class="vest-container">
+        <mat-form-field>
+          <input matInput placeholder="Vest" [(ngModel)]="data[4][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+      </div>
+      <div class="backpack-container">
+        <mat-form-field>
+          <input matInput placeholder="Backpack" [(ngModel)]="data[5][0]" (ngModelChange)="onChange()">
+        </mat-form-field>
+      </div>
+    </ng-container>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 

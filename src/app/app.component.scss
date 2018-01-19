@@ -1,0 +1,29 @@
+.main-container {
+  margin: 2rem;
+}
+
+.left-container {
+  width: 30%;
+  height: auto;
+  float: left;
+
+  mat-form-field {
+    width: 95%;
+  }
+}
+
+.right-container {
+  width: 70%;
+  height: auto;
+  float: left;
+}
+
+.uniform-container, .vest-container, .backpack-container {
+  width: 33%;
+  height: auto;
+  float: left;
+
+  mat-form-field {
+    width: 95%;
+  }
+}
