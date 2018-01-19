@@ -14,8 +14,9 @@
 
 .right-container {
   width: 70%;
-  height: auto;
+  height: 95vh;
   float: left;
+  overflow: auto;
 }
 
 .uniform-container, .vest-container, .backpack-container {
@@ -26,4 +27,9 @@
   mat-form-field {
     width: 95%;
   }
+}
+
+hr {
+  margin-left: 20%;
+  margin-right: 20%;
 }
