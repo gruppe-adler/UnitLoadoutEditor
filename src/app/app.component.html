@@ -7,56 +7,58 @@
   <div class="right-container">
     <ng-container *ngIf="data">
       <div>
+        <h2>Primary Weapon</h2>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon" [(ngModel)]="data[0][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Weapon" [(ngModel)]="data[0][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon Silencer" [(ngModel)]="data[0][1]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Silencer" [(ngModel)]="data[0][1]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon Pointer" [(ngModel)]="data[0][2]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Pointer" [(ngModel)]="data[0][2]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon Optic" [(ngModel)]="data[0][3]" (ngModelChange)="onChange()">
-        </mat-form-field>
-        <br/>
-        <mat-form-field>
-          <input matInput placeholder="Primary Weapon Magazine" [(ngModel)]="data[0][4][0]" (ngModelChange)="onChange()">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Primary Weapon Magazine Ammo" [(ngModel)]="data[0][4][1]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Optic" [(ngModel)]="data[0][3]" (ngModelChange)="onChange()">
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon Grenade" [(ngModel)]="data[0][5][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Magazine" [(ngModel)]="data[0][4][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Primary Weapon Grenade Ammo" [(ngModel)]="data[0][5][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[0][4][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Grenade" [(ngModel)]="data[0][5][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Primary Weapon Bipod" [(ngModel)]="data[0][6]" (ngModelChange)="onChange()">
+          <input matInput type="number" placeholder="Grenade Ammo" [(ngModel)]="data[0][5][1]" (ngModelChange)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Bipod" [(ngModel)]="data[0][6]" (ngModelChange)="onChange()">
         </mat-form-field>
       </div>
       <hr>
       <div>
+        <h2>Handgun</h2>
         <mat-form-field>
-          <input matInput placeholder="Handgun Weapon" [(ngModel)]="data[2][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Handgun" [(ngModel)]="data[2][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Handgun Weapon Silencer" [(ngModel)]="data[2][1]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Silencer" [(ngModel)]="data[2][1]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Handgun Weapon Pointer" [(ngModel)]="data[2][2]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Pointer" [(ngModel)]="data[2][2]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Handgun Weapon Optic" [(ngModel)]="data[2][3]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Optic" [(ngModel)]="data[2][3]" (ngModelChange)="onChange()">
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input matInput placeholder="Handgun Weapon Magazine" [(ngModel)]="data[2][4][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Magazine" [(ngModel)]="data[2][4][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Handgun Weapon Magazine Ammo" [(ngModel)]="data[2][4][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[2][4][1]" (ngModelChange)="onChange()">
         </mat-form-field>
         <!--
         <mat-form-field>
@@ -72,24 +74,25 @@
       </div>
       <hr>
       <div>
+        <h2>Secondary Weapon</h2>
         <mat-form-field>
-          <input matInput placeholder="Secondary Weapon" [(ngModel)]="data[1][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Secondary" [(ngModel)]="data[1][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Secondary Weapon Silencer" [(ngModel)]="data[1][1]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Silencer" [(ngModel)]="data[1][1]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Secondary Weapon Pointer" [(ngModel)]="data[1][2]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Pointer" [(ngModel)]="data[1][2]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Secondary Weapon Optic" [(ngModel)]="data[1][3]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Optic" [(ngModel)]="data[1][3]" (ngModelChange)="onChange()">
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input matInput placeholder="Secondary Weapon Magazine" [(ngModel)]="data[1][4][0]" (ngModelChange)="onChange()">
+          <input matInput placeholder="Magazine" [(ngModel)]="data[1][4][0]" (ngModelChange)="onChange()">
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" placeholder="Secondary Weapon Magazine Ammo" [(ngModel)]="data[1][4][1]" (ngModelChange)="onChange()">
+          <input matInput type="number" placeholder="Magazine Ammo" [(ngModel)]="data[1][4][1]" (ngModelChange)="onChange()">
         </mat-form-field>
         <!--
         <mat-form-field>
@@ -105,6 +108,7 @@
       </div>
       <hr>
       <div>
+        <h2>Misc</h2>
         <mat-form-field>
           <input matInput placeholder="Helmet" [(ngModel)]="data[6]" (ngModelChange)="onChange()">
         </mat-form-field>
