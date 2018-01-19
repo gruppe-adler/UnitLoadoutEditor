@@ -11,7 +11,7 @@ export class AddItemComponent {
   addItemForm = this.formBuilder.group({
     item: ['', Validators.required],
     count: [1, [Validators.required, Validators.min(1)]],
-    ammo: [0, Validators.min(0)]
+    ammo: [null, Validators.min(1)]
   });
 
   constructor(public dialogRef: MatDialogRef<AddItemComponent>,
